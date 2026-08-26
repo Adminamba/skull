@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emotion Tracker Sekolah</title>
+    <style>
+        /* Animasi Background Keren */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Efek Glassmorphism untuk Kotak Form */
+        .container {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px;
+            width: 90%;
+            max-width: 600px;
+            box-shadow: 0 15px 25px rgba(0,0,0,0.2);
+            margin: 20px 0;
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #444;
+        }
+
+        input[type="text"], select, textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            box-sizing: border-box;
+            font-family: inherit;
+        }
+
+        /* Desain Pilihan Emosi */
+        .emotion-container {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+            margin-top: 10px;
+            flex-wrap: wrap; /* Biar rapi di HP */
+        }
+
+        .emotion-option {
+            flex: 1;
+            min-width: 80px;
+            text-align: center;
+        }
+
+        .emotion-option input[type="radio"] {
+            display: none; /* Sembunyikan radio button asli */
+        }
+
+        .emotion-label {
+            display: block;
+            padding: 10px;
+            border-radius: 12px;
+            cursor: pointer;
+            background: #f0f0f0;
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .emotion-label span {
+            display: block;
+            font-size: 30px;
+            margin-bottom: 5px;
+        }
+
+        .emotion-label p {
+            margin: 0;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        /* Warna saat emosi dipilih */
+        #senang_banget:checked + .emotion-label { background: #ffeb3b; border-color: #fbc02d; }
+        #senang:checked + .emotion-label { background: #81c784; border-color: #388e3c; }
+        #biasa:checked + .emotion-label { background: #81d4fa; border-color: #0288d1; }
+        #kecewa:checked + .emotion-label { background: #ffb74d; border-color: #f57c00; }
+        #sedih:checked + .emotion-label { background: #90caf9; border-color: #1976d2; }
+
+        .btn-submit {
+            width: 100%;
+            background-color: #2e7d32;
+            color: white;
+            border: none;
+            padding: 15px;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background 0.3s;
+            margin-top: 10px;
+        }
+
+        .btn-submit:hover {
+            background-color: #1b5e20;
+        }
+
+        /* Responsif untuk Layar Kecil (HP) */
+        @media (max-width: 480px) {
+            .emotion-option { min-width: 30%; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Bagaimana Perasaanmu Hari Ini?</h2>
+        
+        <form id="emotionForm">
+            <div class="form-group">
+                <label>Nama Lengkap:</label>
+                <input type="text" id="nama" placeholder="Masukkan namamu..." required>
+            </div>
+
+            <div class="form-group">
+                <label>Pilih Kelas:</label>
+                <select id="kelas" required>
+                    <option value="">-- Pilih Kelas --</option>
+                    <option value="7A">7A</option>
+                    <option value="7B">7B</option>
+                    <option value="8A">8A</option>
+                    <option value="8B">8B</option>
+                    <option value="9A">9A</option>
+                    <option value="9B">9B</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Pilih Emosi Hari Ini:</label>
+                <div class="emotion-container">
+                    <div class="emotion-option">
+                        <input type="radio" name="emosi" id="senang_banget" value="Senang Banget" required>
+                        <label for="senang_banget" class="emotion-label">
+                            <span>🤩</span><p>SENANG BANGET</p>
+                        </label>
+                    </div>
+                    <div class="emotion-option">
+                        <input type="radio" name="emosi" id="senang" value="Senang">
+                        <label for="senang" class="emotion-label">
+                            <span>😊</span><p>SENANG</p>
+                        </label>
+                    </div>
+                    <div class="emotion-option">
+                        <input type="radio" name="emosi" id="biasa" value="Biasa Saja">
+                        <label for="biasa" class="emotion-label">
+                            <span>😐</span><p>BIASA</p>
+                        </label>
+                    </div>
+                    <div class="emotion-option">
+                        <input type="radio" name="emosi" id="kecewa" value="Kecewa">
+                        <label for="kecewa" class="emotion-label">
+                            <span>😞</span><p>KECEWA</p>
+                        </label>
+                    </div>
+                    <div class="emotion-option">
+                        <input type="radio" name="emosi" id="sedih" value="Sedih">
+                        <label for="sedih" class="emotion-label">
+                            <span>😭</span><p>SEDIH</p>
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Ceritakan Detail Harimu:</label>
+                <textarea id="cerita" rows="4" placeholder="Tuliskan pengalaman atau kejadian hari ini..." required></textarea>
+            </div>
+
+            <button type="submit" class="btn-submit">KIRIM DATA KE EXCEL</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('emotionForm').addEventListener('submit', function(e) {
+            e.preventDefault(); // Mencegah halaman reload
+
+            // Mengambil data dari form
+            const nama = document.getElementById('nama').value;
+            const kelas = document.getElementById('kelas').value;
+            const emosi = document.querySelector('input[name="emosi"]:checked').value;
+            // Membersihkan teks cerita dari enter/koma agar format Excel tidak rusak
+            const cerita = document.getElementById('cerita').value.replace(/(\r\n|\n|\r|,)/gm, " "); 
+            const tanggal = new Date().toLocaleString('id-ID');
+
+            // Membuat baris data format CSV (Excel)
+            const csvContent = `Tanggal,Nama,Kelas,Emosi,Cerita\n"${tanggal}","${nama}","${kelas}","${emosi}","${cerita}"`;
+
+            // Proses download file CSV
+            const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+            const link = document.createElement("a");
+            const url = URL.createObjectURL(blob);
+            
+            link.setAttribute("href", url);
+            link.setAttribute("download", `Data_Emosi_${nama}.csv`);
+            link.style.visibility = 'hidden';
+            
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+
+            // Reset form setelah dikirim
+            alert("Data berhasil disimpan! File Excel (CSV) otomatis terdownload.");
+            this.reset();
+        });
+    </script>
+</body>
+</html>
