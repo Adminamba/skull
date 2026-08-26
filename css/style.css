@@ -7,7 +7,7 @@ body {
             display: flex;
             justify-content: center;
             align-items: center;
-            background-image: url('/css/style.css');
+            background-image: url('../css/style.css');
         }
 
         @keyframes gradientBG {
