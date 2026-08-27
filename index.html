@@ -9,16 +9,16 @@
 <body>
 
     <div class="container">
-        <h2>Bagaimana Perasaanmu Hari Ini?</h2>
+        <h2>How are you feeling</h2>
         
         <form id="emotionForm">
             <div class="form-group">
-                <label>Nama Lengkap:</label>
-                <input type="text" id="nama" placeholder="Masukkan namamu..." required>
+                <label>Full name:</label>
+                <input type="text" id="nama" placeholder="Input your name..." required>
             </div>
 
             <div class="form-group">
-                <label>Pilih Kelas:</label>
+                <label>Choose Grade:</label>
                 <select id="kelas" required>
                     <option value="">-- Pilih Kelas --</option>
                     <option value="7A">7A</option>
@@ -29,47 +29,47 @@
             </div>
 
             <div class="form-group">
-                <label>Pilih Emosi Hari Ini:</label>
+                <label>Choose the emotion:</label>
                 <div class="emotion-container">
                     <div class="emotion-option">
                         <input type="radio" name="emosi" id="senang_banget" value="Senang Banget" required>
                         <label for="senang_banget" class="emotion-label">
-                            <span>🤩</span><p>SENANG BANGET</p>
+                            <span>🤩</span><p>Very Happy</p>
                         </label>
                     </div>
                     <div class="emotion-option">
                         <input type="radio" name="emosi" id="senang" value="Senang">
                         <label for="senang" class="emotion-label">
-                            <span>😊</span><p>SENANG</p>
+                            <span>😊</span><p>Happy</p>
                         </label>
                     </div>
                     <div class="emotion-option">
                         <input type="radio" name="emosi" id="biasa" value="Biasa Saja">
                         <label for="biasa" class="emotion-label">
-                            <span>😐</span><p>BIASA</p>
+                            <span>😐</span><p>Normal</p>
                         </label>
                     </div>
                     <div class="emotion-option">
                         <input type="radio" name="emosi" id="kecewa" value="Kecewa">
                         <label for="kecewa" class="emotion-label">
-                            <span>😞</span><p>KECEWA</p>
+                            <span>😞</span><p>Dissapointed</p>
                         </label>
                     </div>
                     <div class="emotion-option">
                         <input type="radio" name="emosi" id="sedih" value="Sedih">
                         <label for="sedih" class="emotion-label">
-                            <span>😭</span><p>SEDIH</p>
+                            <span>😭</span><p>Sad</p>
                         </label>
                     </div>
                 </div>
             </div>
 
             <div class="form-group">
-                <label>Ceritakan Detail Harimu:</label>
-                <textarea id="cerita" rows="4" placeholder="Tuliskan pengalaman atau kejadian hari ini..." required></textarea>
+                <label>Tell me more detail:</label>
+                <textarea id="cerita" rows="4" placeholder="Tuliskan kejadian hari ini yang membuat mu memilih emosi itu..." required></textarea>
             </div>
 
-            <button type="submit" class="btn-submit">KIRIM DATA KE EXCEL</button>
+            <button type="submit" class="btn-submit">Submit</button>
         </form>
     </div>
 
